@@ -18,10 +18,11 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set textwidth=0
 
 " Python settings
+"    \ set textwidth=79              |
 au BufNewFile,BufRead *.py,*.pyw 
-    \ set textwidth=79              |
     \ set fileformat=unix           |
     \ match BadWhitespace /\s\+$/
 
