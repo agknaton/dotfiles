@@ -8,8 +8,12 @@ syntax on
 " Default to not read-only in vimdiff
 set noro
 
+" Fix backspace behaviour
+set backspace=indent,eol,start
+
 " Global edit settings
 set encoding=utf-8
+set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -18,7 +22,6 @@ set expandtab
 " Python settings
 au BufNewFile,BufRead *.py,*.pyw 
     \ set textwidth=79              |
-    \ set autoindent                |
     \ set fileformat=unix           |
     \ match BadWhitespace /\s\+$/
 
@@ -36,9 +39,9 @@ au BufRead,BufNewFile *.c,*.h
 
 " Verilog settings
 au BufNewfile,BufRead *.v,*.sv 
-    \ set tabstop=4                 |
-    \ set softtabstop=4             |
-    \ set shiftwidth=4
+    \ set tabstop=2                 |
+    \ set softtabstop=2             |
+    \ set shiftwidth=2
 
 " Plugins init
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
