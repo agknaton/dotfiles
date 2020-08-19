@@ -66,7 +66,7 @@ call plug#begin('$HOME/.vim/plugged')
 " Plug 'preservim/nerdtree' |
 "             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" NERDTree file system explorer with git plugin
+" NERDTree file system explorer
 Plug 'preservim/nerdtree' 
 
 " NERDCommenter shortcuts for commenting code
