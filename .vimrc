@@ -23,23 +23,28 @@ set textwidth=0
 " Python settings
 "    \ set textwidth=79              |
 au BufNewFile,BufRead *.py,*.pyw 
+	\ set number					|
     \ set fileformat=unix           |
     \ match BadWhitespace /\s\+$/
 
 " Makefile settings
 au BufNewfile,BufRead *Makefile*
+    \ set fileformat=unix           |
     \ set noexpandtab
 
 " Bash settings
 au BufNewfile,BufRead *.sh
+    \ set fileformat=unix           |
     \ set noexpandtab
 
 " C settings
 au BufRead,BufNewFile *.c,*.h 
+	\ set number					|
     \ match BadWhitespace /\s\+$/
 
 " Verilog settings
 au BufNewfile,BufRead *.v,*.sv 
+	\ set number					|
     \ set tabstop=2                 |
     \ set softtabstop=2             |
     \ set shiftwidth=2
@@ -52,12 +57,23 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('$HOME/.vim/plugged')
+"Commented plugins are saved here for later
+
 " Intellisense feature for Vim
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" " NERDTree file system explorer with git plugin
+" Plug 'preservim/nerdtree' |
+"             \ Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " NERDTree file system explorer with git plugin
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree' 
+
+" NERDCommenter shortcuts for commenting code
+Plug 'preservim/nerdcommenter'
+
+"" Syntastic syntac checking plugin
+"Plug 'vim-syntastic/syntastic'
 
 " Autocomplete
 " Plug 'Valloric/YouCompleteMe'
