@@ -30,12 +30,14 @@ au BufNewFile,BufRead *.py,*.pyw
 " Makefile settings
 au BufNewfile,BufRead *Makefile*
     \ set fileformat=unix           |
-    \ set noexpandtab
+    \ set noexpandtab				|
+    \ match BadWhitespace /\s\+$/
 
 " Bash settings
 au BufNewfile,BufRead *.sh
     \ set fileformat=unix           |
-    \ set noexpandtab
+    \ set noexpandtab				|
+    \ match BadWhitespace /\s\+$/
 
 " C settings
 au BufRead,BufNewFile *.c,*.h 
@@ -47,7 +49,8 @@ au BufNewfile,BufRead *.v,*.sv
 	\ set number					|
     \ set tabstop=2                 |
     \ set softtabstop=2             |
-    \ set shiftwidth=2
+    \ set shiftwidth=2				|
+    \ match BadWhitespace /\s\+$/
 
 " Plugins init
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
@@ -72,7 +75,10 @@ Plug 'preservim/nerdtree'
 " NERDCommenter shortcuts for commenting code
 Plug 'preservim/nerdcommenter'
 
-"" Syntastic syntac checking plugin
+" Vim-Templates
+Plug 'tibabit/vim-templates'
+
+"" Syntastic syntax checking plugin
 "Plug 'vim-syntastic/syntastic'
 
 " Autocomplete
@@ -81,7 +87,21 @@ Plug 'preservim/nerdcommenter'
 " Powerline (status bar)
 " Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+" Unicode search plugin
+Plug 'chrisbra/unicode.vim'
+
 call plug#end()
 
 " Plugins config
+" NERDTree
 let NERDTreeShowHidden=1
+
+" Vim-Templates
+let g:tmpl_search_paths = ['~/.vim/templates']
+
+" If there are any machine-specific tweaks for Vim, load them from the following file.
+try 
+  source ~/.vimrc_local
+catch
+  " No such file? No problem; just ignore it.
+endtry 
