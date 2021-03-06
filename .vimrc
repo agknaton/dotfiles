@@ -115,6 +115,7 @@ let NERDTreeShowHidden=1
 
 " Vim-Templates
 let g:tmpl_search_paths = ['$HOME/.vim/templates']
+let g:tmpl_author_name = 'Agknaton Bottenberg'
 
 " If there are any machine-specific tweaks for Vim, load them from the following file.
 try 
