@@ -56,7 +56,7 @@ au BufNewfile,BufRead *.v,*.sv
 " Automatic installation of vim-plug, if it's not available
 " ----------------------------------------
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
-  silent !curl -kfLo ~/.vim/autoload/plug.vim --create-dirs
+  silent !curl -kfLo $HOME/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -76,7 +76,7 @@ autocmd VimEnter *
 " Commented plugins are saved here for later
 "-----------------------------------------
 "call plug#begin('$HOME/.vim/plugged')
-silent! if plug#begin('~/.vim/plugged')
+silent! if plug#begin('$HOME/.vim/plugged')
 
 " Intellisense feature for Vim
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -114,11 +114,11 @@ endif
 let NERDTreeShowHidden=1
 
 " Vim-Templates
-let g:tmpl_search_paths = ['~/.vim/templates']
+let g:tmpl_search_paths = ['$HOME/.vim/templates']
 
 " If there are any machine-specific tweaks for Vim, load them from the following file.
 try 
-  source ~/.vimrc_local
+  source $HOME/.vimrc_local
 catch
   " No such file? No problem; just ignore it.
 endtry 
