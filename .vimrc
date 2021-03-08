@@ -1,8 +1,10 @@
 set nocompatible
 
 " Configure color scheme
+set background=dark
 autocmd ColorScheme * highlight BadWhitespace ctermbg=red guibg=red
-colo evening
+set t_Co=256
+colo elflord
 syntax on
 
 " Default to not read-only in vimdiff
