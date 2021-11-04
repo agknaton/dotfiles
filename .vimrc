@@ -21,6 +21,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set textwidth=0
+set ve+=block                       " Enables block add of trailing spaces on lines with different lengths
 
 " Python settings
 "    \ set textwidth=79              |
