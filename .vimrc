@@ -6,6 +6,7 @@ autocmd ColorScheme * highlight BadWhitespace ctermbg=red guibg=red
 set t_Co=256
 colo elflord
 syntax on
+highlight ColorColumn ctermbg=233 guibg=#232323
 
 " Default to not read-only in vimdiff
 set noro
@@ -22,11 +23,16 @@ set shiftwidth=4
 set expandtab
 set textwidth=0
 set ve+=block                       " Enables block add of trailing spaces on lines with different lengths
+set colorcolumn=0
 
 " Python settings
-"    \ set textwidth=79              |
-au BufNewFile,BufRead *.py,*.pyw 
+"au BufNewFile,BufRead *.py,*.pyw 
+au FileType python
     \ set number                    |
+    \ set colorcolumn=80            |
+    \ set textwidth=79              |
+    \ set nowrap                    |
+    \ set formatoptions-=t          |
     \ set fileformat=unix           |
     \ match BadWhitespace /\s\+$/
 
@@ -89,13 +95,16 @@ silent! if plug#begin('$HOME/.vim/plugged')
 "             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " NERDTree file system explorer
-Plug 'preservim/nerdtree' 
+Plug 'preservim/nerdtree'
 
 " NERDCommenter shortcuts for commenting code
 Plug 'preservim/nerdcommenter'
 
 " Vim-Templates
 Plug 'tibabit/vim-templates'
+
+" Jedi-Vim - awesome Python autocompletion with VIM
+Plug 'davidhalter/jedi-vim'
 
 "" Syntastic syntax checking plugin
 "Plug 'vim-syntastic/syntastic'
