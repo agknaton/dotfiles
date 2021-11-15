@@ -1,5 +1,5 @@
 # dotfiles
-My dotfiles
+My dotfiles  
 README.md is separated in the master branch and the actual dotfiles in home branch so the README doesn't get checked out.
 
 # (optional) Preferred WSL install (for Windows systems only)
