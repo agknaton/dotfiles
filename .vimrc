@@ -24,10 +24,36 @@ set expandtab
 set textwidth=0
 set ve+=block                       " Enables block add of trailing spaces on lines with different lengths
 set colorcolumn=0
+set timeoutlen=500
+
+" Keyboard remaps
+" esc in insert & visual mode
+inoremap kj <ESC>
+vnoremap kj <ESC>
+
+" esc in command mode
+cnoremap kj <C-C>
+" Note: In command mode mappings to esc run the command for some odd
+" historical vi compatibility reason. We use the alternate method of
+" existing which is Ctrl-C
+
+" Functions
+" Clears trailing whitespaces
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+" Commands
+" Clears trailing whitespaces
+command! TrimWhitespace call TrimWhitespace()
 
 " Python settings
 "au BufNewFile,BufRead *.py,*.pyw 
 au FileType python
+    \ set list                      |
+    \ set listchars+=tab:»→         |
     \ set number                    |
     \ set colorcolumn=80            |
     \ set textwidth=79              |
@@ -100,6 +126,12 @@ Plug 'preservim/nerdtree'
 " NERDCommenter shortcuts for commenting code
 Plug 'preservim/nerdcommenter'
 
+" Tagbar: a class outline viewer for Vim
+Plug 'preservim/tagbar'
+
+" Vim-Polyglot: A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
+
 " Vim-Templates
 Plug 'tibabit/vim-templates'
 
@@ -110,7 +142,7 @@ Plug 'davidhalter/jedi-vim'
 "Plug 'vim-syntastic/syntastic'
 
 " Autocomplete
-" Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 " Powerline (status bar)
 " Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}

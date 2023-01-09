@@ -11,9 +11,9 @@ case $OS in
 		if [ $(dpkg-query -W -f='${Status}' apt 2>/dev/null | grep -c "ok installed") -eq 1 ]
 		then
 			#PKG_CMD="$DRY_RUN_PREFFIX apt-get install";
-			PKG_UPDATE="apt-get update"
-			PKG_UPGRADE="apt-get upgrade"
-			PKG_INSTALL="apt-get install"
+			PKG_UPDATE="sudo apt-get update"
+			PKG_UPGRADE="sudo apt-get upgrade"
+			PKG_INSTALL="sudo apt-get install"
 		elif [ $(dpkg-query -W -f='${Status}' pacman 2>/dev/null | grep -c "ok installed") -eq 1 ]
 		then
 			PKG_CMD="pacman -S"

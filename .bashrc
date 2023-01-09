@@ -88,9 +88,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+#alias ll='ls -alF'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -104,6 +104,23 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# todo.txt script initialization
+export TODOTXT_DEFAULT_ACTION=ls
+export EDITOR=vim
+__load_completion todo
+_todo_home()
+{
+        local _todo_sh='todo.sh -aNtd $HOME/.todo_home.cfg'
+        _todo "$@"
+}
+complete -F _todo_home toh
+_todo_agknaton()
+{
+        local _todo_sh='todo.sh -aNtd $HOME/.todo_agknaton.cfg'
+        _todo "$@"
+}
+complete -F _todo_agknaton tom
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
