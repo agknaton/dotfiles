@@ -1,0 +1,10 @@
+# Template for local .bash_profile file
+
+# Source .bashrc for global settings
+case "$-" in
+    *i*)
+        if [ -r ~/.bashrc ]; then
+            source ~/.bashrc
+        fi
+        ;;
+esac
