@@ -14,10 +14,14 @@ README.md is separated in the master branch and the actual dotfiles in home bran
     git clone --bare -b home --single-branch https://github.com/agknaton/dotfiles.git $HOME/.dotfiles
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout --force
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+    cd .dotfiles
+    git fetch origin install:install
 
-Use now ``dotfiles`` instead of ``git`` to manipulate the files.
+Now, after restarting your terminal, use ``dotfiles`` instead of ``git`` to manipulate the files.
 
 # Automated system setup
+1. Checkout the **install** branch to expose the scripts with ``dotfiles checkout install``
 1. Just run the install script from the list below (downloaded with the dotfiles):
     1. **General bash based setup**: ./install.sh -h
+1. Revert to the **home** branch to hide the install files with ``dotfiles_imec checkout home``
 1. Profit 😎
