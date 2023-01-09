@@ -1,6 +1,0 @@
-matplotlib
-numpy
-pandas
-pyinstaller
-sphinx
-sphinx-rtd-theme
