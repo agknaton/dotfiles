@@ -5,15 +5,16 @@
 # Created on {{DAY_FULL}}, {{MONTH_FULL}} {{DATE}}, {{YEAR}}
 # Created by {{NAME}}
 #
-### {{CURSOR}}Summary
+# {{CURSOR}}Summary
 #
 # Filename: '{{FILEE}}'
 
-### IMPORTS
+
+# IMPORTS
 import fire
 
 
-### CONSTANTS
+# CONSTANTS
 # empty
 
 
@@ -30,4 +31,3 @@ def function():
 ############################################################################
 if __name__ == "__main__":
     fire.Fire(function)
-
