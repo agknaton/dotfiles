@@ -66,6 +66,10 @@ Install ()
 	echo "Upgrade the installed packages"
 	Run $PKG_UPGRADE
 
+	echo "Run pre-install commands"
+	# nodejs is required for GitHub Copilot
+	curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&sudo apt-get install -y nodejs
+
 	echo "Install system packages"
 	Run $PKG_INSTALL $(xargs echo <pkgs_install.txt)
 
