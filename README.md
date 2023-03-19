@@ -23,5 +23,5 @@ Now, after restarting your terminal, use ``dotfiles`` instead of ``git`` to mani
 1. Checkout the **install** branch to expose the scripts with ``dotfiles checkout install``
 1. Just run the install script from the list below (downloaded with the dotfiles):
     1. **General bash based setup**: ./install.sh -h
-1. Revert to the **home** branch to hide the install files with ``dotfiles_imec checkout home``
+1. Revert to the **home** branch to hide the install files with ``dotfiles checkout home``
 1. Profit 😎
