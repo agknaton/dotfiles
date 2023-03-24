@@ -1,6 +1,8 @@
+flake8
 matplotlib
 numpy
 pandas
 pyinstaller
+pylint
 sphinx
 sphinx-rtd-theme
