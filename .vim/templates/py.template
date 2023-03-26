@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""
 #################################
 # Disclaimers                   #
 #################################
@@ -8,6 +9,7 @@
 # {{CURSOR}}Summary
 #
 # Filename: '{{FILEE}}'
+"""
 
 # IMPORTS
 # empty
