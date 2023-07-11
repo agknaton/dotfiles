@@ -4,5 +4,6 @@ numpy
 pandas
 pyinstaller
 pylint
+pynvim
 sphinx
 sphinx-rtd-theme
