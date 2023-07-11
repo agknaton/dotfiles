@@ -107,7 +107,7 @@ fi
 
 # todo.txt script initialization
 export TODOTXT_DEFAULT_ACTION=ls
-export EDITOR=vim
+export EDITOR=nvim
 __load_completion todo
 _todo_home()
 {
