@@ -132,3 +132,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Add /opt to PATH for custom apps
+if [ -d "/opt" ] && [[ ":$PATH:" != *":/opt:"* ]]; then
+    export PATH=/opt:$PATH
+fi
