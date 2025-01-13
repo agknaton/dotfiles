@@ -7,5 +7,4 @@ universal-ctags
 git-flow
 
 graphviz
-neovim
 tree

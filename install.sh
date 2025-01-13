@@ -28,6 +28,14 @@ case $OS in
 esac
 
 
+printmessage () {
+	echo ""
+	echo "--------------------------------------------"
+	echo $1
+	echo "--------------------------------------------"
+}
+
+
 Help ()
 {
 	echo "\
@@ -61,28 +69,36 @@ Run ()
 
 Install ()
 {
-	echo "Update the package manager cache"
+	printmessage "Update the package manager cache"
 	Run $PKG_UPDATE
 
-	echo "Upgrade the installed packages"
+	printmessage "Upgrade the installed packages"
 	Run $PKG_UPGRADE
 
-	echo "Run pre-install commands"
-	# nodejs is required for GitHub Copilot
-	#curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&sudo apt-get install -y nodejs
-	Run curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-	Run sudo apt-get install -y nodejs
-	# Create support folders
+	printmessage "Run pre-install commands"
+	printmessage "    - Create support folders"
+	Run mkdir -p ~/temp
 	Run mkdir -p ~/apps_data
+	printmessage "    - Make sure curl is installed"
+	Run sudo apt-get install -y curl
+	printmessage "    - Install nodejs"
+	# nodejs is required for GitHub Copilot
+	Run cd ~/temp
+	Run curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+	Run sudo -E bash nodesource_setup.sh
+	Run sudo apt-get install -y nodejs
+	Run rm -rf nodesource_setup.sh
+	Run cd ~
 
-	echo "Install system packages"
+	printmessage "Install system packages"
 	Run $PKG_INSTALL $(xargs echo <pkgs_install.txt)
 
-	echo "Install python packages"
+	printmessage "Install python packages"
 	Run pip install -r pip_pkgs.txt
 
-	echo "Install todotxt-cli"
+	printmessage "Install todotxt-cli"
 	if [ $TARGET_SYSTEM == "debian" ]; then
+		Run cd ~/temp
 		Run git clone https://github.com/todotxt/todo.txt-cli.git
 		Run cd todo.txt-cli
 		Run mkdir -p temp
@@ -91,9 +107,19 @@ Install ()
 		Run cd ..
 		Run sudo rm -rf todo.txt-cli
 		Run sudo rm -rf .todo-txt
+		Run cd ~
 	else
 		Run $PKG_CMD todotxt-cli
 	fi
+
+	printmessage "Install latest NeoVim"
+	Run cd ~/temp
+	Run curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+	Run sudo rm -rf /opt/nvim
+	Run sudo tar -C /opt -xzf nvim-linux64.tar.gz
+	Run sudo ln -s /opt/nvim-linux64/bin/nvim /opt/nvim
+	Run rm -rf nvim-linux64.tar.gz
+	Run cd ~
 }
 
 
