@@ -3,8 +3,12 @@ My dotfiles
 README.md is separated in the master branch and the actual dotfiles in home branch so the README doesn't get checked out.
 
 # (optional) Preferred WSL install (for Windows systems only)
+1. Enable Windows features for WSL:
+    1. Virtual Machine Platform
+    1. Windows Hypervisor Platform
+    1. Windows Subsystem for Linux
 1. Install your preferred distro with ``wsl --install -d <distro_name>``
-1. Install [mintty](https://github.com/mintty/wsltty) as the preferred terminal
+1. Install [mintty](https://github.com/mintty/wsltty) as the preferred terminal with ``winget install wsltty``
 1. Configure git credential manager in WSL:  
 
        mkdir -p ~/.config/git
