@@ -83,12 +83,11 @@ Install ()
 	Run sudo apt-get install -y curl
 	printmessage "    - Install nodejs"
 	# nodejs is required for GitHub Copilot
-	Run cd ~/temp
-	Run curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
-	Run sudo -E bash nodesource_setup.sh
-	Run sudo apt-get install -y nodejs
-	Run rm -rf nodesource_setup.sh
-	Run cd ~
+	Run curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+	Run export NVM_DIR="$HOME/.config/nvm"
+	Run [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+	Run [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+	Run nvm install --lts
 
 	printmessage "Install system packages"
 	Run $PKG_INSTALL $(xargs echo <pkgs_install.txt)
