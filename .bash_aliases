@@ -8,6 +8,9 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # Clean up Python cache files
 alias pyclean='find . \( -name "__pycache__" -o -name "*.pyc" -o -name "*.egg-info" -o -name "*.pyc" \) -exec rm -rf {} \;'
 
+# Enhance Python VENV to use NVIM
+alias pyvenvx='pip install flake8 pylint pynvim'
+
 # Global aliases
 alias ll='ls -alF'
 alias la='ls -A'

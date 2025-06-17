@@ -144,6 +144,9 @@ Plug 'github/copilot.vim'
 " Asynchronous Lint Engine (ALE) - a Vim plugin for linting and fixing code
 Plug 'dense-analysis/ale'
 
+" Vim-Surround - a Vim plugin for manipulating surrounding characters
+Plug 'tpope/vim-surround'
+
 "" Syntastic syntax checking plugin
 "Plug 'vim-syntastic/syntastic'
 
