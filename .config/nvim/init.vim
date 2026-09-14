@@ -167,6 +167,7 @@ endif
 let g:ale_fixers = {}
 let g:ale_fixers.python = ['black']
 let g:ale_fix_on_save = 0
+let g:ale_python_auto_uv = 1
 
 " NERDTree
 let NERDTreeShowHidden=1
